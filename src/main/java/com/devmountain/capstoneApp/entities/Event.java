@@ -80,6 +80,14 @@ public class Event {
     @JsonBackReference // this annotation prevents infinite recursion when you deliver the resource up as JSON through the RESTful API endpoint I'll create
     private User user;
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
     public Event(EventDto eventDto) {
         if (eventDto.getTitle() != null) {
             this.title = eventDto.getTitle();
