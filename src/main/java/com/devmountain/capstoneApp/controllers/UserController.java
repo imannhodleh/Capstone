@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/users")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -26,6 +26,7 @@ public List<String> addUser(@RequestBody UserDto userDto) {
     return userService.addUser(userDto);
 }
 
+// raw allows us to type in JSON on postman. Converts our JSON to our @Requestbody
 @PostMapping("/login") // this method takes care of POST requests to log in an existing user to the app
 public List<String> userLogin(@RequestBody UserDto userDto) { // this annotation makes the JSON request body become usable to us
     return userService.userLogin(userDto);
