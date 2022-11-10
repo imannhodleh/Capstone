@@ -4,7 +4,6 @@ import com.devmountain.capstoneApp.dtos.EventDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "Events")
@@ -18,9 +17,6 @@ public class Event {
 
     @Column(columnDefinition = "text")
     private String description;
-
-    @Column
-    private Date date;
 
     @Column
     private Integer location;
@@ -49,14 +45,6 @@ public class Event {
         this.description = description;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
     public Integer getLocation() {
         return location;
     }
@@ -68,11 +56,10 @@ public class Event {
     public Event() {
     }
 
-    public Event(Long id, String title, String description, Date date, Integer location) {
+    public Event(Long id, String title, String description, Integer location) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.date = date;
         this.location = location;
     }
 
@@ -81,6 +68,7 @@ public class Event {
     private User user;
 
     public void setUser(User user) {
+        System.out.println(user.getUsername());
         this.user = user;
     }
 
@@ -88,15 +76,14 @@ public class Event {
         return user;
     }
 
+
+
     public Event(EventDto eventDto) {
         if (eventDto.getTitle() != null) {
             this.title = eventDto.getTitle();
         }
         if (eventDto.getDescription() != null) {
             this.description = eventDto.getDescription();
-        }
-        if (eventDto.getDate() != null) {
-            this.date = eventDto.getDate();
         }
         if (eventDto.getLocation() != null) {
             this.location = eventDto.getLocation();

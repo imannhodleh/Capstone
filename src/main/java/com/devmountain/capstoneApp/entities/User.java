@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity // this annotation tells Spring that this class is being mapped to a data source
-@Table(name = "User") // this annotation allows you to set what table you want these objects to be mapped to
+@Table(name = "Users") // this annotation allows you to set what table you want these objects to be mapped to
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

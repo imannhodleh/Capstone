@@ -1,7 +1,6 @@
 package com.devmountain.capstoneApp.services;
 
 import com.devmountain.capstoneApp.dtos.EventDto;
-import com.devmountain.capstoneApp.dtos.UserDto;
 import com.devmountain.capstoneApp.entities.Event;
 import com.devmountain.capstoneApp.entities.User;
 import com.devmountain.capstoneApp.repositories.EventRepository;
@@ -52,7 +51,6 @@ public void updateEventById(EventDto eventDto) {
     eventOptional.ifPresent(event -> {
         event.setTitle(eventDto.getTitle());
         event.setDescription(eventDto.getDescription());
-        event.setDate(eventDto.getDate());
         event.setLocation(eventDto.getLocation());
         eventRepository.saveAndFlush(event);
     });

@@ -15,9 +15,7 @@ public class EventDto implements Serializable {
     private Long id;
     private String title;
     private String description;
-    private Date date;
     private Integer location;
-    private UserDto userDto;
 
     public EventDto(Event event) {
         if (event.getId() != null) {
@@ -28,9 +26,6 @@ public class EventDto implements Serializable {
         }
         if (event.getDescription() != null) {
             this.description = event.getDescription();
-        }
-        if (event.getDate() != null) {
-            this.date = event.getDate();
         }
         if (event.getLocation() != null) {
             this.location = event.getLocation();
