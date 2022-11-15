@@ -11,7 +11,3 @@ import java.util.List;
 public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findAllByUserEquals(User user);
 }
-
-
-// the repository layer is responsible for interacting with the database
-// we're using spring data jpa to make this process easier

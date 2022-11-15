@@ -10,7 +10,3 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByUsername(String username);
 }
-
-
-// the repository layer is responsible for interacting with the database, and we're using spring data jpa to make this process easier
-// the repository layer only interacts with the Service Layer and the Entities

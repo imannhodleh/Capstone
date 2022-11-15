@@ -4,9 +4,9 @@ import com.devmountain.capstoneApp.dtos.UserDto;
 import com.devmountain.capstoneApp.entities.User;
 import com.devmountain.capstoneApp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
+// import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Repository;
+// import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
         List<String> response = new ArrayList<>();
         User user = new User(userDto);
         userRepository.saveAndFlush(user);
-        response.add("User Has Been Added Successfully");
+        response.add("http://localhost:8080/login.html");
         return response;
     }
 
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> userOptional = userRepository.findByUsername(userDto.getUsername());
         if (userOptional.isPresent()) {
             if (passwordEncoder.matches(userDto.getPassword(), userOptional.get().getPassword())) {
-                response.add("User Login Successful");
+                response.add("http://localhost:8080/home.html");
                 response.add(String.valueOf(userOptional.get().getId()));
             } else {
                 response.add("Incorrect Username or Password");
